@@ -13,9 +13,9 @@ type mhs struct {
 }
 
 var data = []mhs{
-	mhs{"D001", "Joko", 13111001},
-	mhs{"D002", "Winda", 13111002},
-	mhs{"D003", "Mark", 13111003},
+	{"D001", "Joko", 13111001},
+	{"D002", "Winda", 13111002},
+	{"D003", "Mark", 13111003},
 }
 
 func users(w http.ResponseWriter, r *http.Request) {
