@@ -16,30 +16,6 @@ type mhs struct {
 	Nim  int
 }
 
-func ambilmhs() ([]mhs, error) {
-	var err error
-	var client = &http.Client{}
-	var data []mhs
-
-	request, err := http.NewRequest("GET", baseurl+"/users", nil)
-	if err != nil {
-		return nil, err
-	}
-
-	response, err := client.Do(request)
-	if err != nil {
-		return nil, err
-	}
-	defer response.Body.Close()
-
-	err = json.NewDecoder(response.Body).Decode(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
-}
-
 func ambilidmhs(ID string) (mhs, error) {
 	var err error
 	var client = &http.Client{}
@@ -70,7 +46,7 @@ func ambilidmhs(ID string) (mhs, error) {
 }
 
 func main() {
-	var mhs1, err = ambilidmhs("D002")
+	var mhs1, err = ambilidmhs("D003")
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		return

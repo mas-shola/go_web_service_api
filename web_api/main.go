@@ -40,7 +40,7 @@ func users(w http.ResponseWriter, r *http.Request) {
 func user(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	if r.Method == "GET" {
+	if r.Method == "POST" {
 		var id = r.FormValue("id")
 		var result []byte
 		var err error
