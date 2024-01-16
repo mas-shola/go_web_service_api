@@ -45,7 +45,7 @@ func user(w http.ResponseWriter, r *http.Request) {
 		var result []byte
 		var err error
 
-		fmt.Println("ID yang diinput ", id)
+		// fmt.Println("ID yang diinput ", id)
 
 		for _, each := range data {
 			if each.ID == id {
