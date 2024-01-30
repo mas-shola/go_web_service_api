@@ -15,6 +15,7 @@ func (c *counter) Add(int) {
 	c.Lock()
 	c.val++
 	c.Unlock()
+
 }
 
 func (c *counter) Value() int {
