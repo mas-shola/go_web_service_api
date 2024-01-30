@@ -18,7 +18,7 @@ func (c *counter) Add(int) {
 
 }
 
-func (c *counter) Value() int {
+func (c *counter) Value() var {
 	return c.val
 }
 
