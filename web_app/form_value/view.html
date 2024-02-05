@@ -1,0 +1,31 @@
+{{define "form"}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Input Value</title>
+    </head>
+    <body>
+        <form method="post" action="/proses">
+        <label>Nama :</label>
+        <input type="text" name="nama" required />
+        <label>Pesan</label>
+        <input type="text" name="pesan" required />
+        <br />
+        <button type="submit">Simpan</button>
+        </form>
+    </body>
+</html>
+{{end}}
+
+{{define "hasil"}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tampil Pesan</title>
+    </head>
+    <body>
+        <h1>Halo {{.nama}}</h1>
+        <p>{{.pesan}}</p>
+    </body>
+</html>
+{{end}}
