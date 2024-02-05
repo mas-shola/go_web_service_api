@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Learn html Functions</title>
+    </head>
+    <body>
+        <p>
+            {{html "<h2>Hello</h2>"}}
+        </p>
+        {{if eq .Nama "Tes"}}
+        <p>If eq .Nama "Sholahuddin"</p>
+        {{else if ne .Nama "Al Ayubi"}}
+        <p>else if ne .Nama "Al Ayubi"</p>
+        {{end}}
+        <p>
+            {{.SayHello "Testing Citizen" "Kamu adalah pahlawan"}}
+        </p>
+    </body>
+</html>
