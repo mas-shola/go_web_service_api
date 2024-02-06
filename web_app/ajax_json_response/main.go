@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func main(){
+func main() {
 	http.HandleFunc("/", ActionIndex)
 
 	fmt.Println("Server Started at localhost:9000")
@@ -14,21 +14,22 @@ func main(){
 }
 
 func ActionIndex(w http.ResponseWriter, r *http.Request) {
-	content := [] struct {
-		Nama string
-		Umur int
-	} {
-		{"Testing 1", 24},
-		{"Testing 2", 23,
-		{"Testing 3", 21},
+	data := []struct {
+		Name string
+		Age  int
+	}{
+		{"Richard Grayson", 24},
+		{"Jason Todd", 23},
+		{"Tim Drake", 22},
+		{"Damian Wayne", 21},
 	}
 
-	jsonInbytes, err := json.Marshal(content)
+	jsonInBytes, err := json.Marshal(data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	w.Header().Set("Content-Type","application/json")
-	w.Write(jsonInbytes)
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonInBytes)
 }
