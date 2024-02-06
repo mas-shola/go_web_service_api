@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testing Golang Download File</title>
+        <script>
+            function Ok(){
+                var self = this;
+                var $ul = document.getElementById("list-files");
+
+                var renderData = function (res) {
+
+                };
+
+                var getAllListFiles = function () {
+
+                };
+
+                self.init = function () {
+                    getAllListFiles();
+                };
+            };
+
+            window.onload = function () {
+                new Ok().init();
+            };
+
+            var renderData = function (res) {
+                res.forEach(function (each) {
+                    var $li = document.createElement("li");
+                    var $a = document.createElement("a");
+
+                    $li.innerText = "download";
+                    $li.appendChild($a);
+                    $ul.appendChild($li);
+
+                    $a.href = "/download?path=" + encodeURI(each.path);
+                    $a.innerText = each.filename;
+                    $a.target = "_blank"
+                });
+            };
+
+            var getAllListFiles = function () {
+                var dtd = new XMLHttpRequest();
+                dtd.open("GET","/list-files");
+                dtd.onreadystatechange = function () {
+                    if (dtd.readyState == 4 && dtd.status == 200) {
+                        var json = JSON.parse(dtd.responseText);
+                        renderData(json);
+                    }
+                };
+                dtd.send();
+
+            };
+        </script>
+    </head>
+    <body>
+        <ul id="list-files"></ul>
+    </body>
+</html>
